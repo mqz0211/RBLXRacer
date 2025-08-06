@@ -1,7 +1,6 @@
 import random
 import string
 import sys
-import keyboard
 
 def generate_code():
     # Define the characters to choose from (A-Z and 0-9)
@@ -18,17 +17,13 @@ def generate_code():
     return code
 
 def main():
-    print("Generating codes (press 'q' or Ctrl+C to quit):")
+    print("Generating codes (press Enter for new code, 'q' + Enter to quit):")
     try:
         while True:
-            # Check if 'q' is pressed
-            if keyboard.is_pressed('q'):
-                print("\nExiting...")
+            user_input = input()  # Waits for Enter key press
+            if user_input.lower() == 'q':
                 break
-            
-            # Generate and print a code
             print(generate_code())
-            
     except KeyboardInterrupt:
         print("\nExiting...")
         sys.exit(0)
